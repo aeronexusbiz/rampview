@@ -105,3 +105,7 @@ body.rv-moving .rv-tools { opacity: .35; pointer-events: none; }   /* 이동 중
 body.rv-3d .rv-tools #rvApron, body.rv-3d .rv-tools #rvAll, body.rv-3d .rv-tools #rvUp, body.rv-3d .rv-tools #rvBase { display: none; }
 :root[data-theme="light"] .rv-zoom button[aria-pressed="true"] { background: #1f6feb; border-color: #1f6feb; color: #fff; }
 :root[data-theme="light"] .rv-zoom button { color: var(--tx); }
+.rv3-labels span.s { font: 600 10px sans-serif; color: #c9d1d9; text-shadow: 0 0 2px #000, 0 0 2px #000; }
+.rv3-labels span.r { font: 800 13px sans-serif; color: #9fe2bf; text-shadow: 0 0 3px #000, 0 0 3px #000; }
+:root[data-theme="light"] .rv3-labels span.s { color: #1f2328; text-shadow: 0 0 2px #fff, 0 0 2px #fff; }
+:root[data-theme="light"] .rv3-labels span.r { color: #0a7d4f; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
