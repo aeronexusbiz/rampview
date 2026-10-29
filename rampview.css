@@ -1,0 +1,73 @@
+/* 계류장 내 위치 — 폰 먼저(세로 화면) · 어두운 바탕(밤 계류장에서 눈부시지 않게) */
+:root { --bg: #0b0f14; --pan: #0d1117; --line: #2a313c; --tx: #e6edf3; --mute: #8b949e; --blue: #3d8bfd; --red: #ff3b30; --org: #f0883e; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--tx); font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; -webkit-text-size-adjust: 100%; }
+button { font: inherit; color: var(--tx); background: #21262d; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; touch-action: manipulation; }
+button[aria-pressed="true"] { background: #1f6feb; border-color: #1f6feb; }
+.org { color: var(--org); }
+
+.rv { display: flex; flex-direction: column; height: 100dvh; height: 100vh; }
+@supports (height: 100dvh) { .rv { height: 100dvh; } }
+.rv-top { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: calc(6px + env(safe-area-inset-top)) 12px 6px; background: var(--pan); border-bottom: 1px solid var(--line); }
+.rv-top h1 { font-size: 15px; margin: 0; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rv-top .tag { margin-left: 6px; font-size: 11px; background: #d29922; color: #000; border-radius: 4px; padding: 1px 5px; vertical-align: 2px; }
+#rvClock { font-variant-numeric: tabular-nums; color: var(--mute); font-size: 13px; }
+#rvSound { padding: 3px 8px; }
+.rv-sub { width: 100%; font-size: 12px; color: var(--mute); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rv-sub b { color: var(--tx); }
+
+.rv-map { position: relative; flex: 1; min-height: 200px; overflow: hidden; touch-action: none; }
+#rvMap { display: block; }
+.rv-tools { position: absolute; top: 8px; left: 8px; right: 60px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.rv-tools::-webkit-scrollbar { display: none; }
+.rv-tools button { flex: none; font-size: 13px; padding: 5px 9px; background: rgba(33,38,45,.9); }
+.rv-tools button[aria-pressed="true"] { background: #1f6feb; }
+.rv-zoom { position: absolute; right: 8px; top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.rv-zoom button { width: 44px; height: 44px; padding: 0; font-size: 20px; background: rgba(33,38,45,.92); }
+#rvMe { margin-top: 10px; color: var(--blue); font-size: 22px; }
+#rvMe[aria-pressed="true"] { color: #fff; background: var(--blue); border-color: var(--blue); }
+#rvWait { position: absolute; inset: 0; display: grid; place-items: center; color: var(--mute); background: var(--bg); }
+#rvWait[hidden] { display: none; }
+#rvBanner { position: absolute; left: 8px; right: 60px; top: 48px; background: rgba(160,20,20,.94); border: 1px solid var(--red); border-radius: 10px; padding: 8px 10px; animation: rvb 1s infinite; }
+#rvBanner b { display: block; font-size: 15px; }
+#rvBanner small { color: #ffd2cf; }
+@keyframes rvb { 50% { background: rgba(110,10,10,.94); } }
+#rvLock { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); background: rgba(13,17,23,.85); border: 1px solid var(--line); border-radius: 14px; padding: 3px 10px; font-size: 12px; color: var(--mute); display: none; white-space: nowrap; }
+body.rv-moving #rvLock { display: block; }
+body.rv-moving .rv-tools { opacity: .35; pointer-events: none; }   /* 이동 중엔 도구를 잠근다(운전 중 조작 금지) — 내 위치·확대는 남긴다 */
+
+.rv-panel { background: var(--pan); border-top: 1px solid var(--line); padding: 10px 12px; min-height: 64px; }
+.rv-go { width: 100%; padding: 14px; font-size: 17px; font-weight: 700; background: var(--blue); border-color: var(--blue); border-radius: 12px; }
+.rv-panel .sub { margin: 6px 0 0; font-size: 12px; color: var(--mute); text-align: center; }
+.rv-panel .err { margin: 6px 0 0; font-size: 13px; color: var(--org); }
+.rv-row { display: flex; align-items: center; gap: 8px; }
+.rv-row b, .rv-row .zone { flex: 1; }
+.rv-x { padding: 4px 10px; font-size: 13px; }
+.zone { font-size: 17px; font-weight: 700; }
+.z-rwy { color: var(--red); } .z-twy { color: #e3b341; } .z-apron { color: #9fe2bf; } .z-out { color: var(--mute); font-size: 15px; }
+.rv-near { margin-top: 4px; font-size: 15px; }
+.rv-near .st { font-size: 22px; color: #fff; }
+.rv-near small { color: var(--mute); }
+.rv-near .flt { color: #c9d1d9; }
+.rv-meta { margin-top: 2px; font-size: 12px; color: var(--mute); }
+.al { margin: 6px 0 0; padding: 6px 8px; border-radius: 8px; font-size: 13px; }
+.al-red { background: rgba(255,59,48,.18); border: 1px solid var(--red); }
+.al-orange { background: rgba(240,136,62,.14); border: 1px solid var(--org); }
+.spin { width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--blue); border-radius: 50%; animation: rvs 1s linear infinite; }
+@keyframes rvs { to { transform: rotate(360deg); } }
+.rv-foot { padding: 4px 12px calc(4px + env(safe-area-inset-bottom)); font-size: 10.5px; color: var(--mute); background: var(--pan); }
+
+@media (min-width: 900px) {   /* 넓은 화면 — 아래 판을 지도 오른쪽 위에 띄운다 */
+  .rv-panel { position: absolute; right: 64px; top: 70px; width: 340px; border: 1px solid var(--line); border-radius: 12px; z-index: 2; }
+  .rv { position: relative; }
+}
+
+/* 초대 코드 관문 */
+#rvGate { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; background: rgba(11,15,20,.96); padding: 16px; }
+#rvGate[hidden] { display: none; }
+#rvGateF { width: 100%; max-width: 340px; background: var(--pan); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+#rvGateF h2 { margin: 0 0 4px; font-size: 18px; }
+#rvGateF p { margin: 0 0 12px; color: var(--mute); font-size: 13px; }
+#rvCode { width: 100%; font: inherit; font-size: 18px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: #0b0f14; color: var(--tx); margin-bottom: 10px; }
+#rvGateF button { width: 100%; padding: 12px; font-size: 16px; font-weight: 700; background: var(--blue); border-color: var(--blue); border-radius: 10px; }
+#rvGateMsg { margin: 10px 0 0 !important; color: var(--org) !important; min-height: 1em; }
