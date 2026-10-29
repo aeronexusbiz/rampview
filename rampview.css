@@ -125,3 +125,19 @@ body.rv-3d .rv-tools #rvApron, body.rv-3d .rv-tools #rvAll, body.rv-3d .rv-tools
 .rv-hf .danger { color: #ff7b72; border-color: #ff7b72; }
 @media (min-width: 900px) { .rv-hist { left: auto; right: 64px; bottom: auto; top: 70px; width: 360px; border-radius: 12px; border: 1px solid var(--line); } }
 .rv-lnk { background: none !important; border: 0 !important; padding: 0; color: #a371f7 !important; font-size: 12px; text-decoration: underline; }
+/* 기록 시작·종료(사용자가 직접) */
+button.rec { color: #ff7b72; border-color: rgba(255,123,114,.6); font-size: 13px; padding: 4px 10px; }
+button.rec.on { background: #da3633; border-color: #da3633; color: #fff; }
+.rv-row .rec { margin-left: auto; }
+.rv-row2 { display: flex; gap: 8px; margin-top: 8px; }
+.rv-row2 button { flex: 1; padding: 9px; }
+.rv-recl { margin-top: 4px; font-size: 12px; color: var(--mute); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.rv-recl i { width: 8px; height: 8px; border-radius: 50%; background: #ff3b30; animation: rvb2 1.2s infinite; }
+@keyframes rvb2 { 50% { opacity: .25; } }
+.rv-hl li > div { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.rv-hl li > button { padding: 2px 8px; }
+.rv-hw { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--line); }
+.rv-hw button { width: 100%; padding: 10px; }
+:root[data-theme="light"] button.rec { color: #cf222e; border-color: rgba(207,34,46,.5); background: #fff; }
+:root[data-theme="light"] button.rec.on { background: #cf222e; color: #fff; }
+:root[data-theme="light"] .rv-hf .danger, :root[data-theme="light"] .rv-hw .danger { color: #cf222e; border-color: rgba(207,34,46,.6); }

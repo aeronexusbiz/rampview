@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b0f14">
 <title>계류장 내 위치</title>
-<link rel="stylesheet" href="rampview.css?v=6">
+<link rel="stylesheet" href="rampview.css?v=7">
 </head>
 <body>
 <div class="rv">
@@ -29,7 +29,7 @@
   </div>
   <section id="rvPanel" class="rv-panel" aria-live="polite"></section>
   <div id="rvHist" class="rv-hist" hidden></div>
-  <footer class="rv-foot">참고용 · 관제 지시 우선 · <b>운전 중 조작 금지</b> · 위치·기록은 이 폰 안에서만(서버 전송 없음) · 항공기 = AeroNexus ADS-B(공항 주변) · 경고 기준 = 가정 · 도면 = eAIP 비행장도·© OpenStreetMap 기여자(ODbL) · 지도 © 브이월드(국토교통부)</footer>
+  <footer class="rv-foot">참고용 · 관제 지시 우선 · <b>운전 중 조작 금지</b> · 위치·이동 기록은 이 폰 안에서만(서버 전송 없음 · 기록은 사용자가 시작/종료) · 항공기 = AeroNexus ADS-B(공항 주변) · 경고 기준 = 가정 · 도면 = eAIP 비행장도·© OpenStreetMap 기여자(ODbL) · 지도 © 브이월드(국토교통부)</footer>
 </div>
 <div id="rvGate" hidden>
   <form id="rvGateF">
@@ -43,7 +43,7 @@
 <script>
 /* 껍데기 — 화면 로직·공항 자료는 서버가 초대 확인 뒤 내준다(이 저장소에는 없다) */
 (function () {
-  var V = '7', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
+  var V = '8', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
   function boot() {
     gate.hidden = true;
     ['/app/lib/ramp-core.js', '/app/rampview.js'].reduce(function (p, src) {
