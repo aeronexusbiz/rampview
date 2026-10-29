@@ -576,3 +576,9 @@ button.rec.on { background: #da3633; border-color: #da3633; color: #fff; }
 :root[data-theme="light"] button.rec.on { background: #cf222e; color: #fff; }
 :root[data-theme="light"] .rv-hf .danger,
 :root[data-theme="light"] .rv-hw .danger { color: #cf222e; border-color: rgba(207, 34, 46, 0.45); background: rgba(207, 34, 46, 0.05); }
+/* 화면 켜두기 */
+#rvAwake[aria-pressed="true"] { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+#rvAwake.warn { background: #9a6700; border-color: #9a6700; }
+#rvAwake.na { opacity: .4; }
+#rvAwake.na::after { content: ''; position: absolute; width: 22px; height: 2px; background: currentColor; transform: rotate(-45deg); }
+#rvAwake { position: relative; }

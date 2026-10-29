@@ -7,7 +7,7 @@
 <title>계류장 내 위치</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon.svg">
-<link rel="stylesheet" href="rampview.css?v=9">
+<link rel="stylesheet" href="rampview.css?v=10">
 </head>
 <body>
 <div class="rv">
@@ -19,6 +19,7 @@
       </h1>
       <span id="rvClock"></span>
       <button id="rvSound" class="rv-ibtn" aria-pressed="false" aria-label="빨강 경고 때 소리" title="빨강 경고 때 소리"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.73 21a2 2 0 0 1-3.46 0M18.63 13A17.89 17.89 0 0 1 18 8M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.33-5M2 2l20 20"/></svg></button>
+      <button id="rvAwake" class="rv-ibtn" aria-pressed="false" aria-label="화면 켜두기" title="화면 켜두기 — 누르면 화면이 꺼지지 않습니다(전원 버튼·다른 앱으로 가면 풀림)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/><path d="M3 8v8M21 8v8"/></svg></button>
       <button id="rvTheme" class="rv-ibtn" aria-label="다크·라이트" title="다크·라이트"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
     <div class="rv-sub"><span id="rvFlow"></span><span id="rvWx">기상 불러오는 중…</span><span id="rvCount"></span></div>
@@ -62,7 +63,7 @@
 <script>
 /* 껍데기 — 화면 로직·공항 자료는 서버가 초대 확인 뒤 내준다(이 저장소에는 없다) */
 (function () {
-  var V = '10', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
+  var V = '11', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
   function boot() {
     gate.hidden = true;
     ['/app/lib/ramp-core.js', '/app/rampview.js'].reduce(function (p, src) {
