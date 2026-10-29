@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#141c28"/>
+      <stop offset="1" stop-color="#0b0f14"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="84" cy="84" r="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f81f7" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2f81f7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect x="2" y="2" width="124" height="124" rx="26" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2"/>
+  <!-- 계류장 유도선 (Apron Lead-in Lines) -->
+  <path d="M18 98 H70 C82 98 88 90 88 78 V22" stroke="#e3b341" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.75"/>
+  <path d="M22 44 H58" stroke="#e3b341" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <!-- 항공기 실루엣 -->
+  <path d="M48 22 L51.5 34 L70 44 V48 L51.5 44 L50.5 55 L56 60 V63 L48 61 L40 63 V60 L45.5 55 L44.5 44 L26 48 V44 L44.5 34 Z" fill="#f0f6fc"/>
+  <!-- 내 위치 비콘 -->
+  <circle cx="84" cy="84" r="28" fill="url(#pulse)"/>
+  <circle cx="84" cy="84" r="14" fill="#ffffff"/>
+  <circle cx="84" cy="84" r="9.5" fill="#2f81f7"/>
+</svg>
