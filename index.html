@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b0f14">
 <title>계류장 내 위치</title>
-<link rel="stylesheet" href="rampview.css?v=3">
+<link rel="stylesheet" href="rampview.css?v=4">
 </head>
 <body>
 <div class="rv">
@@ -18,10 +18,11 @@
   </header>
   <div class="rv-map">
     <canvas id="rvMap" aria-label="계류장 평면도 — 끌어서 이동, 두 손가락으로 확대"></canvas>
+    <div id="rv3dBox" hidden></div>
     <div class="rv-tools">
       <button id="rvApron">계류장</button><button id="rvAll">전체</button><button id="rvUp" aria-pressed="false">북쪽 위</button><button id="rvLabels" aria-pressed="true">편명</button><button id="rvBase" aria-pressed="true">주변 지도</button>
     </div>
-    <div class="rv-zoom"><button id="rvIn" aria-label="확대">＋</button><button id="rvOut" aria-label="축소">－</button><button id="rvMe" aria-pressed="false" aria-label="내 위치" title="내 위치">◎</button></div>
+    <div class="rv-zoom"><button id="rvIn" aria-label="확대">＋</button><button id="rvOut" aria-label="축소">－</button><button id="rvMe" aria-pressed="false" aria-label="내 위치" title="내 위치">◎</button><button id="rv3d" aria-pressed="false" title="3D 보기">3D</button></div>
     <div id="rvBanner" hidden><b></b><small>참고용 — 관제 지시가 우선</small></div>
     <div id="rvWait">공항 도면을 불러오는 중…</div>
     <div id="rvLock">이동 중 — 지도는 내 위치를 따라갑니다</div>
@@ -41,7 +42,7 @@
 <script>
 /* 껍데기 — 화면 로직·공항 자료는 서버가 초대 확인 뒤 내준다(이 저장소에는 없다) */
 (function () {
-  var V = '4', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
+  var V = '6', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
   function boot() {
     gate.hidden = true;
     ['/app/lib/ramp-core.js', '/app/rampview.js'].reduce(function (p, src) {

@@ -90,3 +90,18 @@ body.rv-moving .rv-tools { opacity: .35; pointer-events: none; }   /* 이동 중
 :root[data-theme="light"] #rvCode { background: #fff; }
 :root[data-theme="light"] #rvGate { background: rgba(235,232,225,.97); }
 :root[data-theme="light"] .rv-go, :root[data-theme="light"] #rvGateF button { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* 3D 보기(맥미니 /app/rampview-3d.js) */
+#rv3dBox { position: absolute; inset: 0; background: var(--bg); }
+#rv3dBox[hidden] { display: none; }
+#rv3dBox canvas { display: block; width: 100% !important; height: 100% !important; touch-action: none; }
+.rv3-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.rv3-labels span { position: absolute; left: 0; top: 0; font: 700 11px sans-serif; color: #e6edf3; text-shadow: 0 0 3px #000, 0 0 3px #000; white-space: nowrap; }
+.rv3-labels span.a { color: #9ad1ff; }
+:root[data-theme="light"] .rv3-labels span { color: #1f2328; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
+:root[data-theme="light"] .rv3-labels span.a { color: #0969da; }
+.rv3-stat { position: absolute; left: 8px; bottom: 6px; font: 10px monospace; color: var(--mute); pointer-events: none; }
+#rv3d { font-size: 14px; font-weight: 700; margin-top: 6px; }
+body.rv-3d .rv-tools #rvApron, body.rv-3d .rv-tools #rvAll, body.rv-3d .rv-tools #rvUp, body.rv-3d .rv-tools #rvBase { display: none; }
+:root[data-theme="light"] .rv-zoom button[aria-pressed="true"] { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+:root[data-theme="light"] .rv-zoom button { color: var(--tx); }
