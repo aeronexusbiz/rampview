@@ -1,6 +1,6 @@
 /* 계류장 내 위치 — Vercel 미들웨어: 자료·로직 요청을 맥미니로 넘길 때 비밀 머리글·방문자 IP 를 붙인다 (2026-10-29 · noisewatch 와 같은 방식)
  * 비밀값은 Vercel 환경변수 RV_EDGE_SECRET 에만 있다(코드·저장소에 없음) — 맥미니는 그 값이 맞을 때만 받는다(Funnel 직접 접속 차단). */
-export const config = { matcher: ['/rv/:path*', '/app/:path*', '/data/:path*'] };
+export const config = { matcher: ['/rv/:path*', '/app/:path*', '/data/:path*', '/vworld/:path*'] };
 
 const ORIGIN = 'https://macmini.tail95ff38.ts.net:8443';
 

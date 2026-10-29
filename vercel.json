@@ -3,7 +3,8 @@
   "rewrites": [
     { "source": "/rv/:path*", "destination": "https://macmini.tail95ff38.ts.net:8443/rv/:path*" },
     { "source": "/app/:path*", "destination": "https://macmini.tail95ff38.ts.net:8443/app/:path*" },
-    { "source": "/data/:path*", "destination": "https://macmini.tail95ff38.ts.net:8443/data/:path*" }
+    { "source": "/data/:path*", "destination": "https://macmini.tail95ff38.ts.net:8443/data/:path*" },
+    { "source": "/vworld/:path*", "destination": "https://macmini.tail95ff38.ts.net:8443/vworld/:path*" }
   ],
   "headers": [
     { "source": "/(.*)", "headers": [
