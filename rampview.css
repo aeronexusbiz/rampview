@@ -71,3 +71,22 @@ body.rv-moving .rv-tools { opacity: .35; pointer-events: none; }   /* 이동 중
 #rvCode { width: 100%; font: inherit; font-size: 18px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: #0b0f14; color: var(--tx); margin-bottom: 10px; }
 #rvGateF button { width: 100%; padding: 12px; font-size: 16px; font-weight: 700; background: var(--blue); border-color: var(--blue); border-radius: 10px; }
 #rvGateMsg { margin: 10px 0 0 !important; color: var(--org) !important; min-height: 1em; }
+
+/* 활주로 운영 · 테마 단추 */
+.rv-sub .arr { color: #3fb950; } .rv-sub .dep { color: #f0883e; }
+#rvTheme { padding: 3px 8px; }
+
+/* 라이트 모드(10-29) — 지도·공항 도면 색은 rampview.js PAL.light 와 짝 */
+:root[data-theme="light"] { --bg: #ebe8e1; --pan: #ffffff; --line: #d0d7de; --tx: #1f2328; --mute: #57606a; color-scheme: light; }
+:root[data-theme="light"] button { background: #f6f8fa; color: var(--tx); border-color: var(--line); }
+:root[data-theme="light"] button[aria-pressed="true"], :root[data-theme="light"] .rv-tools button[aria-pressed="true"] { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+:root[data-theme="light"] .rv-tools button, :root[data-theme="light"] .rv-zoom button { background: rgba(255,255,255,.92); }
+:root[data-theme="light"] #rvMe[aria-pressed="true"] { color: #fff; background: var(--blue); }
+:root[data-theme="light"] .rv-near .st { color: #0b0f14; }
+:root[data-theme="light"] .rv-near .flt { color: #30363d; }
+:root[data-theme="light"] .z-apron { color: #1a7f37; } :root[data-theme="light"] .z-twy { color: #9a6700; }
+:root[data-theme="light"] .rv-sub .arr { color: #1a7f37; } :root[data-theme="light"] .rv-sub .dep { color: #bc4c00; }
+:root[data-theme="light"] #rvLock { background: rgba(255,255,255,.9); }
+:root[data-theme="light"] #rvCode { background: #fff; }
+:root[data-theme="light"] #rvGate { background: rgba(235,232,225,.97); }
+:root[data-theme="light"] .rv-go, :root[data-theme="light"] #rvGateF button { background: var(--blue); color: #fff; border-color: var(--blue); }
