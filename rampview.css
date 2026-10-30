@@ -582,3 +582,14 @@ button.rec.on { background: #da3633; border-color: #da3633; color: #fff; }
 #rvAwake.na { opacity: .4; }
 #rvAwake.na::after { content: ''; position: absolute; width: 22px; height: 2px; background: currentColor; transform: rotate(-45deg); }
 #rvAwake { position: relative; }
+/* 자동 기록 · 날짜별 목록(10-30) */
+.rv-recl.off { color: var(--mute); }
+.rv-days { list-style: none; margin: 8px 0 0; padding: 0; }
+.rv-day { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+.rv-dh { display: flex; align-items: center; gap: 10px; padding: 10px 10px; cursor: pointer; }
+.rv-dh b { font-size: 14px; }
+.rv-dh span { flex: 1; color: var(--mute); font-size: 12px; }
+.rv-dh button { padding: 2px 8px; }
+.rv-day.open .rv-dh { border-bottom: 1px solid var(--line); }
+.rv-day .rv-hl li { padding: 9px 10px; }
+.rv-hr select { font: inherit; padding: 3px 6px; border-radius: 6px; border: 1px solid var(--line); background: var(--pan); color: var(--tx); }

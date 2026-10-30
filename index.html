@@ -7,7 +7,7 @@
 <title>계류장 내 위치</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon.svg">
-<link rel="stylesheet" href="rampview.css?v=10">
+<link rel="stylesheet" href="rampview.css?v=11">
 </head>
 <body>
 <div class="rv">
@@ -63,7 +63,7 @@
 <script>
 /* 껍데기 — 화면 로직·공항 자료는 서버가 초대 확인 뒤 내준다(이 저장소에는 없다) */
 (function () {
-  var V = '11', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
+  var V = '12', gate = document.getElementById('rvGate'), msg = document.getElementById('rvGateMsg');
   function boot() {
     gate.hidden = true;
     ['/app/lib/ramp-core.js', '/app/rampview.js'].reduce(function (p, src) {
